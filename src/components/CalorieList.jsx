@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
 
-const CalorieList = ({ calorieEntries }) => {
+const CalorieList = ({ calorieEntries, onDelete }) => {
   return (
-    <ul>
+    <ul class>
       {calorieEntries.map((entry, index) => (
         <li key={index}>
           Meal: {entry.mealName} - Calories: {entry.caloriesConsumed}
+          <button onClick={() => onDelete(index)}>Delete</button>
         </li>
       ))}
     </ul>
