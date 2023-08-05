@@ -9,7 +9,7 @@ const App = () => {
   });
   const [dailyCalorieGoal, setDailyCalorieGoal] = useState(() => {
     const savedDailyCalorieGoal = localStorage.getItem("dailyCalorieGoal");
-    return savedDailyCalorieGoal ? parseFloat(savedDailyCalorieGoal) : "";
+    return savedDailyCalorieGoal ? parseFloat(savedDailyCalorieGoal) : "2000";
   });
   const [totalCaloriesConsumed, setTotalCaloriesConsumed] = useState(() => {
     const total = calorieEntries.reduce(
@@ -47,8 +47,19 @@ const App = () => {
 
   return (
     <div>
-      <h1>Calorie Tracker App</h1>
-      <h3>Daily Calorie Goal: {dailyCalorieGoal}</h3>
+      <div className="flex justify-center">
+        <h1 className="font-mono text-white text-4xl mt-6 mb-6">
+          Calorie Tracker
+        </h1>
+      </div>
+      <div className="flex justify-center mb-6 mx-auto bg-[#404040] w-3/5 p-10 rounded-xl">
+        <div className="flex items-center justify-center">
+          <h3 className="font-mono text-white text-lg">
+            Daily Calorie Goal: {dailyCalorieGoal}
+          </h3>
+        </div>
+      </div>
+
       <CalorieForm
         onSubmit={handleAddMeal}
         dailyCalorieGoal={dailyCalorieGoal}
@@ -58,7 +69,13 @@ const App = () => {
         calorieEntries={calorieEntries}
         onDelete={handleDeleteMeal}
       />
-      <p>Total Calories Consumed Today: {totalCaloriesConsumed}</p>
+      <div className="flex justify-center mt-6 mb-6 mx-auto bg-[#404040] w-3/5 p-10 rounded-xl">
+        <div className="flex items-center justify-center">
+          <p className="font-mono text-white">
+            Total Calories Consumed Today: {totalCaloriesConsumed}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
