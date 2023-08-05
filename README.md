@@ -18,7 +18,7 @@ git clone <repository_url>
 ```
 2. Navigate to the project directory:
 ```
-cd calorie-tracker-app
+cd calorieTracker
 ```
 3. Install the required dependencies:
 ```
